@@ -1,0 +1,44 @@
+-- Table: public."user"
+
+-- DROP TABLE public."user";
+
+CREATE TABLE public."user"
+(
+  id integer NOT NULL DEFAULT nextval('user_id_seq'::regclass),
+  username character varying(45),
+  email character varying(45)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public."user"
+  OWNER TO postgres;
+GRANT ALL ON TABLE public."user" TO postgres;
+GRANT ALL ON TABLE public."user" TO public;
+
+
+
+
+
+outra
+-- Table: public."user"
+
+-- DROP TABLE public."user";
+
+CREATE TABLE public."user"
+(
+  id integer NOT NULL DEFAULT nextval('user_id_seq'::regclass),
+  nome character varying (45) NOT NULL,	
+  username character varying(45) NOT NULL,
+  email character varying(45) NOT NULL,
+  senha character varying(20) NOT NULL,
+  img_perfil bytea  
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public."user"
+  OWNER TO postgres;
+GRANT ALL ON TABLE public."user" TO postgres;
+GRANT ALL ON TABLE public."user" TO public;
+
