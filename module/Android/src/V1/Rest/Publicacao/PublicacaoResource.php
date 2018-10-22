@@ -1,17 +1,17 @@
 <?php
-namespace Android\V1\Rest\User;
+namespace Android\V1\Rest\Publicacao;
 
 use ZF\ApiProblem\ApiProblem;
 use ZF\Rest\AbstractResourceListener;
 
-class UserResource extends AbstractResourceListener
+class PublicacaoResource extends AbstractResourceListener
 {
-	protected $mapper;
+  protected $mapper;
 
-	public function __construct($mapper)
-	{
-		$this->mapper = $mapper;
-	}
+  public function __construct($mapper)
+  {
+    $this->mapper = $mapper;
+  }
 
     /**
      * Create a resource
@@ -21,14 +21,18 @@ class UserResource extends AbstractResourceListener
      */
     public function create($data)
     {
-        $userEntity = new UserEntity();
+          $publicacaoEntity = new PublicacaoEntity();
 
-				$userEntity->nome= $data->nome;
-				$userEntity->username= $data->username;
-				$userEntity->email = $data->email;
-				$userEntity->senha = $data->senha;
+          $publicacaoEntity->id_user= $data->id_user;
+          $publicacaoEntity->endereco= $data->endereco;
+          $publicacaoEntity->descricao = $data->descricao;
 
-				return $this->mapper->save($userEntity);
+          $publicacaoEntity->img_1 = $data->img_1;
+          $publicacaoEntity->img_2 = $data->img_2;
+          $publicacaoEntity->img_3 = $data->img_3;
+
+
+          return $this->mapper->save($publicacaoEntity);
     }
 
     /**
@@ -39,10 +43,9 @@ class UserResource extends AbstractResourceListener
      */
     public function delete($id)
     {
-				if($this->mapper->delete($id)){
-						return true;
-				}
-
+      if($this->mapper->delete($id)){
+          return true;
+      }
     }
 
     /**
@@ -121,14 +124,17 @@ class UserResource extends AbstractResourceListener
      */
     public function update($id, $data)
     {
-        $userEntity = new UserEntity();
+      $publicacaoEntity = new PublicacaoEntity();
 
-				$userEntity->id= $id;
-				$userEntity->nome = $data->nome;
-				$userEntity->username = $data->username;
-				$userEntity->email = $data->email;
-				$userEntity->senha = $data->senha;
+      $publicacaoEntity->id= $id;
+      $publicacaoEntity->id_user = $data->id_user;
+      $publicacaoEntity->endereco = $data->endereco;
+      $publicacaoEntity->descricao = $data->descricao;
 
-				return $this->mapper->save($userEntity);
+      $publicacaoEntity->img_1 = $data->img_1;
+      $publicacaoEntity->img_2 = $data->img_2;
+      $publicacaoEntity->img_3 = $data->img_3;
+
+      return $this->mapper->save($publicacaoEntity);
     }
 }

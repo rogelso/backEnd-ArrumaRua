@@ -1,10 +1,10 @@
 <?php
-namespace Android\V1\Rest\User;
+namespace Android\V1\Rest\Publicacao;
 
 use Zend\Db\TableGateway\TableGateway;
 
 
-class UserMapper
+class PublicacaoMapper
 {
 	protected $tableGateway;
 
@@ -30,36 +30,32 @@ class UserMapper
 		$row= $rowset->current();
 
 		if(!$row){
-			throw new \Exception("Usuario com id {$id}, não encontrado ", 1);
+			throw new \Exception("Publicação com id {$id}, não encontrada ", 1);
 		}
 
 		return $row;
 	}
 
-	public function save(UserEntity $user)
+	public function save(PublicacaoEntity $publicacao)
 	{
 			$data = [
-				'nome' => $user->nome,
-				'username' => $user->username,
-				'email' => $user->email,
-				'senha' => $user->senha
+				'id_user' => $publicacao->id_user,
+				'endereco' => $publicacao->endereco,
+				'descricao' => $publicacao->descricao,
+				'img_1' => $publicacao->img_1,
+        'img_2' => $publicacao->img_2,
+        'img_3' => $publicacao->img_3
 			];
 
-			//$data = $cliente->getArrayCopy();
-
-			$id = (int)$user->id;
+			$id = (int)$publicacao->id;
 
 			if($id == 0){
 				$res = $this->tableGateway->insert($data);
-				//$user->id = $this->tableGateway->lastInsertValue;
-				//$id2 = 5;
-				//return $this->fetchOne($id2);
-				//return $user;
 
 			} else {
 					if($this->fetchOne($id)){
 						$this->tableGateway->update($data, array('id'=>$id));
-						return $user;
+						return $this->fetchOne($id);
 					}
 			}
 	}
