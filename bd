@@ -13,7 +13,7 @@ CREATE TABLE public."user"
   username character varying(20) NOT NULL,
   email character varying(20) NOT NULL,
   senha character varying(20) NOT NULL,
-  img_perfil bytea
+  img_perfil character varying(75)
 )
 
 
@@ -32,8 +32,8 @@ CREATE SEQUENCE publicacao_id_seq
   id_user integer NOT NULL,
   endereco character varying(30) NOT NULL,
   descricao character varying(30) NOT NULL,
-  img_1 bytea,
-  img_2 bytea,
-  img_3 bytea,
+  img_1 character varying(75),
+  img_2 character varying(75),
+  img_3 character varying(75),
   FOREIGN KEY (id_user) REFERENCES public.user(id)
 )

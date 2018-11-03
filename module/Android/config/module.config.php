@@ -167,8 +167,8 @@ return [
                         'name' => \Zend\Validator\StringLength::class,
                         'options' => [
                             'min' => '1',
-                            'message' => 'O campo username deve conter no minimo 10 caracteres',
-                            'max' => '10',
+                            'max' => '20',
+                            'message' => 'O campo username deve conter no máximo 20 caracteres',
                         ],
                     ],
                 ],

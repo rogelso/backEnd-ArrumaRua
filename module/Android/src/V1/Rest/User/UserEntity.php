@@ -32,5 +32,6 @@ class UserEntity
 		$this->username = $array['username'];
 		$this->email = $array['email'];
 		$this->senha = $array['senha'];
+		$this->img_perfil = $array['img_perfil'];
 	}
 }

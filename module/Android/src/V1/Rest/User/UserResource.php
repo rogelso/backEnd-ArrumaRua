@@ -27,6 +27,7 @@ class UserResource extends AbstractResourceListener
 				$userEntity->username= $data->username;
 				$userEntity->email = $data->email;
 				$userEntity->senha = $data->senha;
+				$userEntity->img_perfil = $data->img_perfil;
 
 				return $this->mapper->save($userEntity);
     }
@@ -128,6 +129,7 @@ class UserResource extends AbstractResourceListener
 				$userEntity->username = $data->username;
 				$userEntity->email = $data->email;
 				$userEntity->senha = $data->senha;
+				$userEntity->img_perfil = $data->img_perfil;
 
 				return $this->mapper->save($userEntity);
     }

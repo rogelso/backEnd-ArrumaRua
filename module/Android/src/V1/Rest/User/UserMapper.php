@@ -42,7 +42,8 @@ class UserMapper
 				'nome' => $user->nome,
 				'username' => $user->username,
 				'email' => $user->email,
-				'senha' => $user->senha
+				'senha' => $user->senha,
+				'img_perfil'=>$user->img_perfil
 			];
 
 			//$data = $cliente->getArrayCopy();
